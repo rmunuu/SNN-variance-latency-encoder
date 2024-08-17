@@ -1,0 +1,62 @@
+MNIST classify
+    Iteration 0, Test Acc: 9.82%
+
+    Iteration 50, Test Acc: 79.84%
+
+    Iteration 100, Test Acc: 89.22%
+
+    Iteration 150, Test Acc: 90.30%
+
+    Iteration 200, Test Acc: 91.41%
+
+    Iteration 250, Test Acc: 91.61%
+
+    Iteration 300, Test Acc: 92.24%
+
+    Iteration 350, Test Acc: 92.62%
+
+    Iteration 400, Test Acc: 92.88%
+
+    Iteration 450, Test Acc: 93.03%
+
+MNIST classify RLencoder - 7m 24.3s
+    Iteration 0, Test Acc: 9.80%
+
+    Iteration 50, Test Acc: 79.20%
+
+    Iteration 100, Test Acc: 88.01%
+
+    Iteration 150, Test Acc: 89.23%
+
+    Iteration 200, Test Acc: 90.67%
+
+    Iteration 250, Test Acc: 91.15%
+
+    Iteration 300, Test Acc: 91.79%
+
+    Iteration 350, Test Acc: 92.27%
+
+    Iteration 400, Test Acc: 92.17%
+
+    Iteration 450, Test Acc: 92.59%
+
+MNIST classify RLencoder, Mixed precision - 5m 53.9s
+    Iteration 0, Test Acc: 18.23%
+
+    Iteration 50, Test Acc: 84.91%
+
+    Iteration 100, Test Acc: 89.55%
+
+    Iteration 150, Test Acc: 90.76%
+
+    Iteration 200, Test Acc: 90.72%
+
+    Iteration 250, Test Acc: 91.35%
+
+    Iteration 300, Test Acc: 91.93%
+
+    Iteration 350, Test Acc: 92.02%
+
+    Iteration 400, Test Acc: 92.37%
+
+    Iteration 450, Test Acc: 92.38%

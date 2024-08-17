@@ -13,17 +13,20 @@ class RLencoder(torch.nn.Module):
     def forward(self, x):
         batch_size, _, height, width = x.shape
         spikes = torch.zeros(batch_size, height, width, self.time_window).to(x.device)
+        # print("spikes.shape", spikes.shape)
 
         # gray = to_grayscale(x)
         # max_latency = 100
         var = variance_map(x, 5)
         latency = calculate_latency(var, self.time_window, self.fire_window, mode='log')
 
-        for t in range(self.time_window):
-            firing_mask = ((t >= latency) & (t < latency + self.fire_window)).float()
-            spike_prob = torch.rand(batch_size, height, width).to(x.device)
-            spikes[:, :, :, t] = (spike_prob < x.squeeze(1)) * firing_mask
+        spike_prob = torch.rand(batch_size, height, width, self.time_window).to(x.device)
 
+        time_range = torch.arange(self.time_window).view(1, 1, 1, -1).to(x.device)
+        firing_mask = ((time_range >= latency.unsqueeze(-1)) & (time_range < (latency + self.fire_window).unsqueeze(-1))).squeeze().float()
+
+        spikes = (spike_prob < x.squeeze().unsqueeze(-1)) * firing_mask
+        
         return spikes
 
 # def to_grayscale(image):
