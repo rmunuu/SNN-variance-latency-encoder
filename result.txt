@@ -19,6 +19,30 @@ MNIST classify
 
     Iteration 450, Test Acc: 93.03%
 
+
+MNIST classify - rate 0.2
+    Iteration 0, Test Acc: 9.82%
+
+    Iteration 50, Test Acc: 9.80%
+
+    Iteration 100, Test Acc: 24.50%
+
+    Iteration 150, Test Acc: 78.40%
+
+    Iteration 200, Test Acc: 83.48%
+
+    Iteration 250, Test Acc: 86.61%
+
+    Iteration 300, Test Acc: 88.18%
+
+    Iteration 350, Test Acc: 88.58%
+
+    Iteration 400, Test Acc: 89.56%
+
+    Iteration 450, Test Acc: 90.10%
+
+
+
 MNIST classify RLencoder - 7m 24.3s
     Iteration 0, Test Acc: 9.80%
 
@@ -40,6 +64,7 @@ MNIST classify RLencoder - 7m 24.3s
 
     Iteration 450, Test Acc: 92.59%
 
+
 MNIST classify RLencoder, Mixed precision - 5m 53.9s
     Iteration 0, Test Acc: 18.23%
 
@@ -60,3 +85,22 @@ MNIST classify RLencoder, Mixed precision - 5m 53.9s
     Iteration 400, Test Acc: 92.37%
 
     Iteration 450, Test Acc: 92.38%
+
+
+
+CIFAR10 classify RLencoder - 44m 52.3s
+    Iteration 0, Test Acc: 9.97%
+
+    Iteration 50, Test Acc: 12.40%
+
+    Iteration 100, Test Acc: 14.16%
+
+    Iteration 150, Test Acc: 18.27%
+
+    Iteration 200, Test Acc: 19.35%
+
+    Iteration 250, Test Acc: 20.49%
+
+    Iteration 300, Test Acc: 21.13%
+
+    Iteration 350, Test Acc: 22.12%

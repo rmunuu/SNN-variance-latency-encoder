@@ -13,10 +13,7 @@ class RLencoder(torch.nn.Module):
     def forward(self, x):
         batch_size, _, height, width = x.shape
         spikes = torch.zeros(batch_size, height, width, self.time_window).to(x.device)
-        # print("spikes.shape", spikes.shape)
-
-        # gray = to_grayscale(x)
-        # max_latency = 100
+        
         var = variance_map(x, 5)
         latency = calculate_latency(var, self.time_window, self.fire_window, mode='log')
 
@@ -25,12 +22,11 @@ class RLencoder(torch.nn.Module):
         time_range = torch.arange(self.time_window).view(1, 1, 1, -1).to(x.device)
         firing_mask = ((time_range >= latency.unsqueeze(-1)) & (time_range < (latency + self.fire_window).unsqueeze(-1))).squeeze().float()
 
+        if x.shape[1] != 1:
+            x = torch.mean(x, dim=1, keepdim=True)
         spikes = (spike_prob < x.squeeze().unsqueeze(-1)) * firing_mask
-        
-        return spikes
 
-# def to_grayscale(image):
-#     return torch.mean(image, dim=1, keepdim=True)
+        return spikes
 
 def variance_map(image, kernel_size):
     # kernel_size : odd
@@ -44,7 +40,8 @@ def variance_map(image, kernel_size):
     local_mean_squared = F.avg_pool2d(squared_image, kernel_size, stride=1, padding=0)
     
     variance = local_mean_squared - local_mean ** 2
-    # variance = torch.mean(variance, dim=1, keepdim=True)
+    if variance.shape[1] != 1:
+        variance = torch.mean(variance, dim=1, keepdim=True)
     
     return variance
 
